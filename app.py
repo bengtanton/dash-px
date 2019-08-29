@@ -33,7 +33,7 @@ app.layout = html.Div(
 
 ####### Callback
 @app.callback(Output("graph", "figure"), [Input(d, "value") for d in dimensions])
-def make_figure(x, y  #, 
+def make_figure(x, y):  #, 
                 #color, 
                 #facet_col,
                 #facet_row
