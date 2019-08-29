@@ -40,6 +40,7 @@ def make_figure(x, y):  #,
                ):
     return px.scatter(
         #tips,
+        dataSet,
         x=x,
         y=y,
         #color=color,
