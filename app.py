@@ -6,7 +6,9 @@ from dash.dependencies import Input, Output
 
 tips = px.data.tips()
 col_options = [dict(label=x, value=x) for x in tips.columns]
-dimensions = ["x", "y", "color", "facet_col", "facet_row"]
+dimensions = ["x", "y", "color", 
+             # "facet_col", 
+              "facet_row"]
 
 app = dash.Dash(
     __name__, external_stylesheets=["https://codepen.io/chriddyp/pen/bWLwgP.css"]
@@ -27,15 +29,17 @@ app.layout = html.Div(
     ]
 )
 
-
+####### Callback
 @app.callback(Output("graph", "figure"), [Input(d, "value") for d in dimensions])
-def make_figure(x, y, color, facet_col, facet_row):
+def make_figure(x, y, color, 
+                #facet_col,
+                facet_row):
     return px.scatter(
         tips,
         x=x,
         y=y,
         color=color,
-        facet_col=facet_col,
+#        facet_col=facet_col,
         facet_row=facet_row,
         height=700,
     )
