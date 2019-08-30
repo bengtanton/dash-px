@@ -16,7 +16,7 @@ server = app.server
 app.layout = html.Div(
     [
         html.H1("Demo: Plotly Express in Dash with Tips Dataset"),
-        html.Div(
+        html.Div(,
            # [
             #    html.P([d + ":", dcc.Dropdown(id=d, options=col_options)])
             #    for d in dimensions
