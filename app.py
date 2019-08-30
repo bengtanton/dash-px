@@ -6,11 +6,17 @@ import dash_core_components as dcc
 from dash.dependencies import Input, Output
 
     #tips = px.data.tips()
-dataSet = pd.read_csv('X&Y.csv')
+#dataSet = pd.read_csv('X&Y.csv')
     #col_options = [dict(label=x, value=x) for x in tips.columns]
 #col_options = [dict(label=x, value=x) for x in dataSet.columns]
     #dimensions = ["x", "y", "color", "facet_col","facet_row"]
 #dimensions = ["x", "y"]
+
+df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/2014_apple_stock.csv')
+
+fig = px.line(df, x = 'AAPL_x', y = 'AAPL_y', title='Apple Share Prices over time (2014)')
+fig.show()
+'''
 
 app = dash.Dash(
     __name__, external_stylesheets=["https://codepen.io/chriddyp/pen/bWLwgP.css"]
@@ -19,7 +25,7 @@ server = app.server
 
 fig = px.line(dataSet, x = 'X', y = 'Y', title='Apple Share Prices over time (2014)')
                 fig.show()
-'''
+    
 app.layout = html.Div(
     [
         html.H1("Testing Plotly Express in Dash with my own Dataset"),
