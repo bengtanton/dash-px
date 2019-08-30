@@ -17,6 +17,9 @@ app = dash.Dash(
 )
 server = app.server
 
+fig = px.line(dataSet, x = 'X', y = 'Y', title='Apple Share Prices over time (2014)')
+                fig.show()
+'''
 app.layout = html.Div(
     [
         html.H1("Testing Plotly Express in Dash with my own Dataset"),
