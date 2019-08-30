@@ -8,9 +8,9 @@ from dash.dependencies import Input, Output
     #tips = px.data.tips()
 dataSet = pd.read_csv('X&Y.csv')
     #col_options = [dict(label=x, value=x) for x in tips.columns]
-col_options = [dict(label=x, value=x) for x in dataSet.columns]
+#col_options = [dict(label=x, value=x) for x in dataSet.columns]
     #dimensions = ["x", "y", "color", "facet_col","facet_row"]
-dimensions = ["x", "y"]
+#dimensions = ["x", "y"]
 
 app = dash.Dash(
     __name__, external_stylesheets=["https://codepen.io/chriddyp/pen/bWLwgP.css"]
@@ -22,8 +22,10 @@ app.layout = html.Div(
         html.H1("Testing Plotly Express in Dash with my own Dataset"),
         html.Div(
             [
-                html.P([d + ":", dcc.Dropdown(id=d, options=col_options)])
-                for d in dimensions
+                #html.P([d + ":", dcc.Dropdown(id=d, options=col_options)])
+                #for d in dimensions
+                fig = px.line(dataSet, x = 'X', y = 'Y', title='Apple Share Prices over time (2014)')
+                fig.show()
             ],
             style={"width": "25%", "float": "left"},
         ),
@@ -48,6 +50,6 @@ def make_figure(x, y):  #,
         #facet_row=facet_row,
         height=700,
     )
-
+'''
 if __name__ == "__main__":
     app.run_server(debug=True)
