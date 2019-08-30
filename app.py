@@ -1,27 +1,21 @@
 import plotly.express as px
 import dash
-impost pandas as pd
 import dash_html_components as html
 import dash_core_components as dcc
 from dash.dependencies import Input, Output
 
-    tips = px.data.tips()
-#dataSet = pd.read_csv('X&Y.csv')
-    col_options = [dict(label=x, value=x) for x in tips.columns]
-#col_options = [dict(label=x, value=x) for x in dataSet.columns]
-    dimensions = ["x", "y", "color", "facet_col","facet_row"]
-#dimensions = ["x", "y"]
-
-
+tips = px.data.tips()
+col_options = [dict(label=x, value=x) for x in tips.columns]
+dimensions = ["x", "y", "color", "facet_col", "facet_row"]
 
 app = dash.Dash(
     __name__, external_stylesheets=["https://codepen.io/chriddyp/pen/bWLwgP.css"]
 )
 server = app.server
-    
+
 app.layout = html.Div(
     [
-        html.H1("Testing Plotly Express in Dash with my own Dataset"),
+        html.H1("Demo: Plotly Express in Dash with Tips Dataset"),
         html.Div(
             [
                 html.P([d + ":", dcc.Dropdown(id=d, options=col_options)])
@@ -33,13 +27,9 @@ app.layout = html.Div(
     ]
 )
 
-####### Callback
+
 @app.callback(Output("graph", "figure"), [Input(d, "value") for d in dimensions])
-def make_figure(x, y):  , 
-                color, 
-                facet_col,
-                facet_row
-               ):
+def make_figure(x, y, color, facet_col, facet_row):
     return px.scatter(
         tips,
         x=x,
