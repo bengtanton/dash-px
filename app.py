@@ -15,9 +15,9 @@ app = dash.Dash(
 server = app.server
 
 app.layout = html.Div([html.H1("Plotly Express in Dash with Tips Dataset"),])
- #  fig = px.scatter(tips, x="total_bill", y="tip", color="size", facet_col="sex",
-  #        color_continuous_scale=px.colors.sequential.Viridis, render_mode="webgl")
-   #     fig.show()
+   fig = px.scatter(tips, x="total_bill", y="tip", color="size", facet_col="sex",
+          color_continuous_scale=px.colors.sequential.Viridis, render_mode="webgl")
+        fig.show()
 #print("Hello World")
 #app.layout = html.Div(
  #   [
