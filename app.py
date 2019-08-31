@@ -13,10 +13,13 @@ app = dash.Dash(
     __name__, external_stylesheets=["https://codepen.io/chriddyp/pen/bWLwgP.css"]
 )
 server = app.server
+   fig = px.scatter(tips, x="total_bill", y="tip", color="size", facet_col="sex",
+          color_continuous_scale=px.colors.sequential.Viridis, render_mode="webgl")
+        fig.show()
 
-app.layout = html.Div(
-    [
-        html.H1("Plotly Express in Dash with Tips Dataset"),
+#app.layout = html.Div(
+ #   [
+  #      html.H1("Plotly Express in Dash with Tips Dataset"),
         
        # fig = px.scatter(tips, x="total_bill", y="tip", color="size", facet_col="sex",
         #   color_continuous_scale=px.colors.sequential.Viridis, render_mode="webgl")
@@ -29,8 +32,8 @@ app.layout = html.Div(
             #style={"width": "25%", "float": "left"},
         #),
         #dcc.Graph(id="graph", style={"width": "75%", "display": "inline-block"}),
-    ]
-)
+   # ]
+#)
 
 
 #@app.callback(Output("graph", "figure"))
