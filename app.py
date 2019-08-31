@@ -18,25 +18,27 @@ app.layout = html.Div(
     [
         html.H1("Plotly Express in Dash with Tips Dataset"),
         html.Div(
+         fig=px.scatter(dataSet)
+
             #[
              #  html.P([d + ":", dcc.Dropdown(id=d, options=col_options)])
               #  for d in dimensions
             #],
             #style={"width": "25%", "float": "left"},
         #),
-        dcc.Graph(id="graph", style={"width": "75%", "display": "inline-block"}),
+        #dcc.Graph(id="graph", style={"width": "75%", "display": "inline-block"}),
     ]
 )
 
 
-@app.callback(Output("graph", "figure"))
-def make_figure(x, y):
-    return px.scatter(
-        dataSet,
-        x=x,
-        y=y,
-        height=700,
-    )
+#@app.callback(Output("graph", "figure"))
+#def make_figure(x, y):
+ #   return px.scatter(
+  #      dataSet,
+   #     x=x,
+    #    y=y,
+     #   height=700,
+    #)
 
 if __name__ == "__main__":
     app.run_server(debug=True)
