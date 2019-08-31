@@ -29,7 +29,7 @@ app.layout = html.Div(
             #style={"width": "25%", "float": "left"},
         #),
         #dcc.Graph(id="graph", style={"width": "75%", "display": "inline-block"}),
-    #]
+    ]
 )
 
 
